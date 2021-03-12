@@ -32,9 +32,10 @@ if [ ! -z "$remoteRunFile" ]; then
         #缓存基础目录
         path="/tmp/hdfs_pkg/`date '+%Y%m%d%H'`"
         mkdir -p $path
-	chmod -R 777 $path
+        chmod -R 777 $path
 
-        localRunFile="$path/${runFile}.`date '+%M%S'`"
+        #拼接本地文件路径
+        localRunFile="$path/`date '+%M%S'`-${runFile}"
 
         echo "开始下载 $remoteRunFile ..."
         rm -rf $localRunFile

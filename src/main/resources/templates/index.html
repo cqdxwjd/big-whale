@@ -32,7 +32,7 @@
     <!-- 顶部开始 -->
     <div class="container">
         <div class="logo">
-            <a href="./">BWP</a>
+            <a href="./">Big Whale</a>
         </div>
         <div class="left_open">
             <a><i title="展开左侧栏" class="fa fa-navicon" aria-hidden="true"></i></a>
@@ -43,13 +43,8 @@
                 <dl class="layui-nav-child">
                     <!-- 二级菜单 -->
                     <dd>
-                        <a bw-target="执行日志$script/cmd_record/list.html" onclick="xadmin.open('执行日志', 'script/cmd_record/list.html')">
+                        <a bw-target="执行日志$script_history/list.html" onclick="xadmin.open('执行日志', 'script_history/list.html')">
                             <i class="fa fa-file-text-o" aria-hidden="true"></i>执行日志
-                        </a>
-                    </dd>
-                    <dd>
-                        <a bw-target="文件管理$hdfs/list.html" onclick="xadmin.open('文件管理', 'hdfs/list.html')">
-                            <i class="fa fa-file-o" aria-hidden="true"></i>文件管理
                         </a>
                     </dd>
                 </dl>
@@ -74,21 +69,21 @@
         <div id="side-nav">
             <ul id="nav">
                 <li>
-                    <a bw-target="脚本管理$script/list.html" onclick="xadmin.add_tab('脚本管理', 'script/list.html')">
-                        <i class="fa fa-file-code-o" aria-hidden="true" lay-tips="脚本管理"></i>
-                        <cite>脚本管理</cite>
-                    </a>
-                </li>
-                <li>
-                    <a bw-target="实时监控$monitor/list.html" onclick="xadmin.add_tab('实时监控', 'monitor/list.html')">
-                        <i class="fa fa-video-camera" aria-hidden="true" lay-tips="实时监控"></i>
-                        <cite>实时监控</cite>
-                    </a>
-                </li>
-                <li>
-                    <a bw-target="离线调度$scheduling/list.html" onclick="xadmin.add_tab('离线调度', 'scheduling/list.html')">
+                    <a bw-target="离线调度$schedule/list.html" onclick="xadmin.add_tab('离线调度', 'schedule/list.html')">
                         <i class="fa fa-tasks" aria-hidden="true" lay-tips="离线调度"></i>
                         <cite>离线调度</cite>
+                    </a>
+                </li>
+                <li>
+                    <a bw-target="实时任务$strem/list.html" onclick="xadmin.add_tab('实时任务', 'stream/list.html')">
+                        <i class="fa fa-link" aria-hidden="true" lay-tips="实时任务"></i>
+                        <cite>实时任务</cite>
+                    </a>
+                </li>
+                <li>
+                    <a bw-target="Jar包管理$hdfs/list.html" onclick="xadmin.add_tab('Jar包管理', 'hdfs/list.html')">
+                        <i class="fa fa-file-archive-o" aria-hidden="true" lay-tips="Jar包管理"></i>
+                        <cite>Jar包管理</cite>
                     </a>
                 </li>
                 <li>
@@ -116,16 +111,16 @@
                                 <cite>集群用户</cite>
                             </a>
                         </li>
+                        <li th:if="${session.user.check('cluster_agent_manage')}">
+                            <a bw-target="代理管理$admin/cluster/agent/list.html" onclick="xadmin.add_tab('代理管理', 'admin/cluster/agent/list.html')">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <cite>代理管理</cite>
+                            </a>
+                        </li>
                         <li th:if="${session.user.check('cluster_compute_framework_manage')}">
                             <a bw-target="版本管理$admin/cluster/compute_framework/list.html" onclick="xadmin.add_tab('版本管理', 'admin/cluster/compute_framework/list.html')">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
                                 <cite>版本管理</cite>
-                            </a>
-                        </li>
-                        <li th:if="${session.user.check('cluster_agent_manage')}">
-                            <a bw-target="设备管理$admin/cluster/agent/list.html" onclick="xadmin.add_tab('设备管理', 'admin/cluster/agent/list.html')">
-                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <cite>设备管理</cite>
                             </a>
                         </li>
                     </ul>
