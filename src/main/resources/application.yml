@@ -11,7 +11,7 @@ spring:
   application:
     name: Big Whale
   profiles:
-    active: pro
+    active: dev
   data:
     rest:
       returnBodyOnCreate: true
